@@ -634,3 +634,152 @@ In this part, I learned:
 - How OS fingerprinting works.
 - How to identify the network path.
 - How to interpret Nmap's detection results.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+# Part 5 – Firewall Detection & Advanced Scan Techniques
+
+## Objective
+
+I want to learn how different Nmap scan techniques help analyze hosts with filters and understand how firewalls behave during network scanning.
+
+---
+
+# What is Firewall Detection?
+
+Firewalls are like traffic cops. They. Block network traffic based on set rules.
+
+When scanning a firewall may make ports seem:
+
+- Open
+
+- Closed
+
+- Filtered
+
+Understanding these responses helps security pros interpret scan results correctly. We need to know what we're looking at.
+
+---
+
+## 1. ACK Scan
+
+### Scenario
+
+I need to find out if a firewall is filtering packets.
+
+### Command
+
+```bash
+
+sudo nmap -sA 192.168.1.10
+
+```
+
+### Description
+
+An ACK scan helps tell if ports are filtered or not. It's like sending a ping and seeing how the firewall responds.
+
+### Screenshot
+
+![Alt text](screenshots/nmap-ack-scan.png)
+
+---
+
+## 2. FIN Scan
+
+### Scenario
+
+I will perform a FIN scan on the target.
+
+### Command
+
+```bash
+
+sudo nmap -sF 192.168.1.10
+
+```
+
+### Description
+
+FIN packets help identify port states on some operating systems. It's another tool to figure out whats going on.
+
+### Screenshot
+
+![Alt text](screenshots/nmap-fin-scan.png)
+
+---
+
+## 3. NULL Scan
+
+### Scenario
+
+I will send packets with no flags set.
+
+### Command
+
+```bash
+
+sudo nmap -sN 192.168.1.10
+
+```
+
+### Description
+
+NULL packets help identify filtered or open ports on some systems. It's, like a probe.
+
+### Screenshot
+
+![Alt text](screenshots/nmap-null-scan.png)
+
+---
+
+## 4. Xmas Scan
+
+### Scenario
+
+I will send packets with FIN PSH and URG flags enabled.
+
+### Command
+
+```bash
+
+sudo nmap -sX 192.168.1.10
+
+```
+
+### Description
+
+An Xmas scan analyzes firewall and TCP stack responses. It's a way to see how the target reacts.
+
+### Screenshot
+
+![Alt text](screenshots/xmas-scan.png)
+
+---
+
+# Key Concepts Learned
+
+- ACK Scan
+
+- FIN Scan
+
+- NULL Scan
+
+- Xmas Scan
+
+- Filtered Ports
+
+- Firewall Behavior
+
+---
+
+# Conclusion
+
+In this part, I learned:
+
+- How different scan types interact with firewalls.
+- How filtered ports differ from closed ports.
+- How ACK, FIN, NULL, and Xmas scans support network reconnaissance.
+- Why scan results vary depending on the target operating system and firewall configuration.
